@@ -1,7 +1,5 @@
 use serde_json::{json, Value// Provider-specific function removed;
 use tauri::State;
-use std::sync::Arc;
-use sqlx::SqlitePool;
 
 use crate::models::room::{Room, CreateRoomRequest, RoomSummary// Provider-specific function removed;
 use crate::models::message::SendMessageRequest;

@@ -173,6 +173,39 @@ Create a new room. Two modes: **manual** (default) and **admin** (conversational
 | `scoreTemplateId` | string | NO | Interview score template ID (triggers `interview_simulation`) |
 | `scoreDimensions` | string[] | NO | Custom score dimensions for interview |
 
+**Important Notes:**
+
+1. **Room Types vs Scenario Templates**: `roomType` must be one of the valid room types returned by `/api/meta` (e.g., `expert_discussion`, `roleplay_scene`). Scenario templates (like `interview_simulation`) are internal and should not be used as `roomType`.
+
+2. **Interview Simulation**: To create an interview simulation room, use `roomType: "expert_discussion"` and provide either `scoreTemplateId` or `scoreDimensions`. This triggers the `interview_simulation` scenario template internally.
+
+**Interview Simulation Examples:**
+
+```json
+{
+  "topic": "Backend Engineer Interview",
+  "objective": "Complete a backend engineering interview simulation",
+  "roomType": "expert_discussion",
+  "scoreTemplateId": "backend_engineering"
+// Provider-specific function removed
+```
+
+```json
+{
+  "topic": "Custom Interview",
+  "objective": "Simulate a custom interview",
+  "roomType": "expert_discussion",
+  "scoreDimensions": ["System Design", "Data Consistency", "Failure Recovery"]
+// Provider-specific function removed
+```
+
+**Available Interview Score Templates:**
+- `backend_engineering` - Backend Engineering
+- `frontend_engineering` - Frontend Engineering
+- `algorithm_ml` - Algorithm/Machine Learning
+- `product_management` - Product Management
+- `general_professional` - General Professional
+
 **Response (success):**
 
 ```json

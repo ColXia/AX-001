@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize// Provider-specific function removed;
 use sqlx::FromRow;
-use chrono::{DateTime, Utc// Provider-specific function removed;
+use chrono::Utc;
 use uuid::Uuid;
 
 #[derive(Debug, Clone, Serialize, Deserialize, FromRow)]

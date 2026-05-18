@@ -1,52 +1,58 @@
 # Desktop Frontend Policy
 
+## Status
+
+**Effective**: 2026-05-18
+**Version**: 1.0.0
+**Status**: ✅ Production Policy
+
+This document defines the frontend policy for AX-001.
+
 ## Decision
 
-AX-001 uses the Tauri desktop application as the only supported interactive frontend.
+**Supported Frontend**: Tauri Desktop Application only
 
-The local HTTP server remains part of the desktop app runtime because Tauri loads
-the room workspace from it, but users and demos should not be directed to open the
-browser UI directly.
+AX-001 uses the Tauri desktop application as the only supported interactive frontend. The local HTTP server remains part of the desktop app runtime (Tauri loads the workspace from it), but users should not open the browser UI directly.
 
-This is a hard product direction. Do not introduce a new browser-first frontend,
-revive the TUI as a product interface, or split future room interactions across
-multiple UI surfaces. If an operation needs to be user-facing, put it in the
-desktop workspace.
+**This is a hard product direction**:
+- Do NOT introduce browser-first frontend
+- Do NOT revive TUI as product interface
+- Do NOT split room interactions across multiple UI surfaces
+- All user-facing operations belong in the desktop workspace
 
 ## Supported Entry Point
 
-```powershell
+```bash
 npm run app:tauri
 ```
 
-Starts the Tauri desktop application with the room workspace.
+This starts the Tauri desktop application with the room workspace.
 
-## Internal Interaction Surfaces
+## Internal Surfaces (Not for Users)
 
-- Browser-opened room UI is not a product frontend. The web server is treated as an
-  internal desktop-shell host/API layer.
-- Future roleplay, discussion, and room-management work should target the desktop
-  workspace first.
+**Allowed for internal/debug use**:
+- CLI workflow commands (automation, regression, scripted runs)
+- HTTP server (desktop shell host/API process)
+- Static `web/chatroom/*` modules (desktop workspace implementation)
 
-Allowed uses of internal surfaces:
-
-- CLI workflow commands may stay for automation, regression, and scripted runs.
-- The raw HTTP server may stay as the desktop shell host/API process.
-- Static `web/chatroom/*` modules may stay as the desktop workspace implementation.
-
-Not allowed:
-
-- adding a new standalone browser UI
-- adding `web/room-platform/*` or another web directory as a browser-first product
-  unless it is explicitly loaded by the Tauri desktop application
-- documenting `npm run web:chatroom` as the user-facing start command
-- building custom roleplay, discussion, or room management features only in CLI
-- creating separate frontend designs for each scenario
+**NOT allowed**:
+- Adding standalone browser UI
+- Adding `web/room-platform/*` or other browser-first directories
+- Documenting `npm run web:chatroom` as user-facing command
+- Building room features only in CLI
+- Creating separate frontend designs per scenario
 
 ## Room Management Scope
 
-The desktop room workspace should own the room operations previously spread across
-CLI and browser workflows:
+The desktop workspace owns these operations:
+- Room browsing and filtering
+- Room creation (all scenarios)
+- Room continuation (send messages)
+- Room deletion and archiving
+- Queue control (pause/resume)
+- Checkpoint resume
+- Runtime inspection
+- Agent thread viewing
 
 - list and select rooms
 - create rooms

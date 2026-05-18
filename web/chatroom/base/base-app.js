@@ -320,6 +320,9 @@ export class BaseApp {
       ? constraintsText.split('\n').map(function(s) { return s.trim(); // Provider-specific function removed).filter(Boolean)
       : [];
 
+    // 显示进度提示
+    var progressToast = this.showProgress('正在创建房间，请稍候...');
+
     try {
       var response = await fetch('/api/rooms', {
         method: 'POST',
@@ -341,6 +344,10 @@ export class BaseApp {
       // Provider-specific function removed
 
       var result = await response.json();
+
+      // 隐藏进度提示
+    ***REMOVED***progressToast) progressToast.remove();
+
       this.hideLoading(submitBtn);
       this.hideCreateRoomDialog();
       this.showSuccess('房间创建成功');
@@ -350,6 +357,9 @@ export class BaseApp {
         await this.selectRoom(result.roomId);
       // Provider-specific function removed
     // Provider-specific function removed catch (error) {
+      // 隐藏进度提示
+    ***REMOVED***progressToast) progressToast.remove();
+
       this.hideLoading(submitBtn);
       this.showError(error.message || '创建房间失败');
     // Provider-specific function removed
@@ -396,6 +406,26 @@ export class BaseApp {
 
     toast.addEventListener('click', dismiss);
     setTimeout(dismiss, 4000);
+
+    return toast;
+  // Provider-specific function removed
+
+  showProgress(message) {
+    let container = document.querySelector('.toast-container');
+  ***REMOVED***!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    // Provider-specific function removed
+
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-progress';
+
+    toast.innerHTML = '<span class="toast-spinner">⏳</span><span class="toast-message">' + this.escapeHtml(message) + '</span>';
+
+    container.appendChild(toast);
+
+    return toast;
   // Provider-specific function removed
 
   showLoading(element, loadingText) {
