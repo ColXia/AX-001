@@ -1,0 +1,29 @@
+[package]
+name = "ax001-desktop"
+version = "1.0.0"
+description = "AX-001 Room Desktop Application"
+authors = ["AX-001 Team"]
+license = "ISC"
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "ax001_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.1", features = [] // Provider-specific function removed
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] // Provider-specific function removed
+log = "0.4"
+tauri = { version = "2.11.1", features = ["devtools"] // Provider-specific function removed
+tauri-plugin-log = "2"
+tokio = { version = "1", features = ["full"] // Provider-specific function removed
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio", "chrono"] // Provider-specific function removed
+chrono = { version = "0.4", features = ["serde"] // Provider-specific function removed
+uuid = { version = "1.0", features = ["v4", "serde"] // Provider-specific function removed
+anyhow = "1.0"
+thiserror = "1.0"

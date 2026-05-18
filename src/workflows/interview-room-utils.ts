@@ -1,0 +1,32 @@
+export type {
+  InterviewCandidateTurnKind,
+  InterviewAnswerCoverageAssessment,
+// Provider-specific function removed from '../room-scenarios/interview/interview-room-utils.js';
+
+export {
+  INTERVIEW_PANEL_DISCUSSION_PREFIX,
+  INTERVIEW_HANDOFF_PREFIX,
+  MIN_CANDIDATE_REPLIES_FOR_COMPLETION,
+  isInterviewMetaContent,
+  findLatestInterviewerPrompt,
+  findLatestInterviewerPromptBeforeMessage,
+  classifyInterviewCandidateTurnMessage,
+  detectRepeatedCandidateAnswer,
+  looksLikeCorruptedInterviewText,
+  getLatestInterviewCandidateTurnState,
+  findLatestInterviewCandidateAnswer,
+  countInterviewCandidateReplies,
+  countConsecutiveRepeatedCandidateAnswers,
+  countConsecutiveCandidateTurnsByKind,
+  countConsecutiveRefusalCandidateTurns,
+  countConsecutiveNonResponsiveCandidateTurns,
+  countConsecutiveEvasiveCandidateAnswers,
+  countConsecutiveInadequateCandidateAnswers,
+  assessInterviewAnswerCoverage,
+  assessLatestInterviewCandidateAnswerCoverage,
+  inferInterviewStatusFromMessages,
+  inferInterviewStageFromMessages,
+  hasInterviewWeakAnswerSignal,
+  hasInterviewEvasiveAnswerSignal,
+  hasInterviewShortNonSubstantiveSignal,
+// Provider-specific function removed from '../room-scenarios/interview/interview-room-utils.js';

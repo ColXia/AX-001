@@ -1,0 +1,48 @@
+{
+  "name": "ax-001",
+  "version": "1.0.0",
+  "description": "Extensible multi-agent analysis workflows built on the OpenAI Agents SDK.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts",
+    "app:tauri": "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tools/launch-tauri-desktop.ps1",
+    "build:tauri": "npx tauri build",
+    "demo:tavern": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts run chatroom --scenario-template tavern_roleplay_demo --rounds 1",
+    "package:course": "powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File tools/package-course-submission.ps1",
+    "test": "tsx --test src/**/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "web:chatroom": "node --disable-warning=ExperimentalWarning --import tsx src/web/chatroom-web.ts",
+    "web:chatroom:legacy": "node --disable-warning=ExperimentalWarning --import tsx src/web/chatroom-web.ts --runtime-mode=legacy",
+    "web:chatroom:next": "node --disable-warning=ExperimentalWarning --import tsx src/web/chatroom-web.ts --runtime-mode=next",
+    "web:room-platform": "node --disable-warning=ExperimentalWarning --import tsx src/web/room-platform-web.ts",
+    "web:room-platform:next": "node --disable-warning=ExperimentalWarning --import tsx src/web/room-platform-web.ts --runtime-mode=next",
+    "workflow:chatroom": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts run chatroom",
+    "workflow:discussion": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts run discussion",
+    "workflow:parallel": "node --disable-warning=ExperimentalWarning --import tsx src/index.ts run parallel",
+    "regression:checkpoint-resume": "node --disable-warning=ExperimentalWarning --import tsx src/scripts/chatroom-checkpoint-resume-regression.ts",
+    "regression:repair-checkpoint-resume": "node --disable-warning=ExperimentalWarning --import tsx src/scripts/chatroom-repair-checkpoint-resume-regression.ts",
+    "regression:interview-complete": "node --disable-warning=ExperimentalWarning --import tsx src/scripts/interview-complete-regression.ts",
+    "regression:discussion-complete": "node --disable-warning=ExperimentalWarning --import tsx src/scripts/discussion-complete-regression.ts",
+    "regression:all": "node --disable-warning=ExperimentalWarning --import tsx src/scripts/chatroom-regression-all.ts"
+  // Provider-specific function removed,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.71",
+    "@openai/agents-core": "^0.8.3",
+    "@openai/agents-extensions": "^0.8.3",
+    "@openai/agents-openai": "^0.8.3",
+    "ai": "^6.0.168",
+    "openai": "^6.33.0",
+    "zod": "^4.3.6"
+  // Provider-specific function removed,
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.1",
+    "@types/node": "^25.5.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  // Provider-specific function removed
+// Provider-specific function removed

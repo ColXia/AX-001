@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>前端测试</title>
+</head>
+<body>
+    <h1>前端加载测试</h1>
+    <div id="status">加载中...</div>
+    <div id="rooms"></div>
+
+    <script type="module">
+        import { BaseApp // Provider-specific function removed from './base/base-app.js';
+
+        const statusDiv = document.getElementById('status');
+        const roomsDiv = document.getElementById('rooms');
+
+        try {
+            statusDiv.textContent = '创建 BaseApp 实例...';
+            const app = new BaseApp();
+
+            statusDiv.textContent = '初始化应用...';
+            await app.init();
+
+            statusDiv.textContent = '应用初始化成功！';
+
+            // 显示房间列表
+          ***REMOVED***app.state.rooms && app.state.rooms.length > 0) {
+                roomsDiv.innerHTML = '<h2>房间列表:</h2>' +
+                    app.state.rooms.map(r => `<div>${r.roomId// Provider-specific function removed - ${r.topic// Provider-specific function removed</div>`).join('');
+            // Provider-specific function removed else {
+                roomsDiv.innerHTML = '<h2>没有房间</h2>';
+            // Provider-specific function removed
+
+            window.app = app;
+        // Provider-specific function removed catch (error) {
+            statusDiv.textContent = '错误: ' + error.message;
+            statusDiv.style.color = 'red';
+            console.error(error);
+        // Provider-specific function removed
+    </script>
+</body>
+</html>

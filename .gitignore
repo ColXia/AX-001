@@ -1,0 +1,98 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Runtime data (gitignored - generated at runtime)
+runs/
+data/
+tmp/
+
+# Configuration with secrets
+config/runtime.config.local.json
+
+# Logs
+*.log
+tmp-*.log
+*.err.log
+*.out.log
+
+# Personal documents
+resume_*.docx
+resume_*.md
+*.docx
+*.doc
+
+# Archives (historical content)
+archive/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+secrets/
+
+# Machine-specific files
+.npmrc
+*.exe
+*.msi
+*.dmg
+*.app
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Package locks (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Tauri build output
+src-tauri/target/
+
+# Database files
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Compiled files
+*.js.map
+*.d.ts
+
+# Course submission files (historical)
+homework/
+submission/
+
+# Test files
+test-*.cjs
+test-*.js
+
+# API test files
+api.txt
+
+# Installation files
+rustup-init.exe

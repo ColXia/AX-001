@@ -1,0 +1,60 @@
+/* AX-001 Base Styles - 几何直线设计风格 */
+
+:root {
+  --bg: #0e1320;
+  --line: rgba(147, 172, 226, 0.25);
+  --text: #eef3ff;
+  --muted: #9eb0d1;
+  --accent: #65a6ff;
+  --good: #2bc48a;
+  --warn: #ffb84d;
+  --danger: #ff6f7d;
+  --workspace-sidebar-width: 280px;
+  --runtime-sidebar-width: 240px;
+  --font-ui: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-mono: "Cascadia Mono", "Consolas", monospace;
+// Provider-specific function removed
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+// Provider-specific function removed
+
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+// Provider-specific function removed
+
+body {
+  color: var(--text);
+  background: linear-gradient(180deg, #131b2f 0%, #0c111d 100%);
+  font-family: var(--font-ui);
+  overflow: hidden;
+// Provider-specific function removed
+
+button, input, textarea, select {
+  font: inherit;
+// Provider-specific function removed
+
+button {
+  color: inherit;
+  cursor: pointer;
+// Provider-specific function removed
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+// Provider-specific function removed
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+// Provider-specific function removed
+
+::-webkit-scrollbar-thumb {
+  background: rgba(141, 184, 255, 0.2);
+// Provider-specific function removed
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(141, 184, 255, 0.3);
+// Provider-specific function removed

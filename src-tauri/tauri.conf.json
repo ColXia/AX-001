@@ -1,0 +1,41 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "AX-001 Room Desktop",
+  "version": "1.0.0",
+  "identifier": "com.ax001.desktop",
+  "build": {
+    "frontendDist": "../web/chatroom",
+    "devUrl": "http://127.0.0.1:3030"
+  // Provider-specific function removed,
+  "app": {
+    "windows": [
+      {
+        "title": "AX-001 房间工作台",
+        "width": 1500,
+        "height": 960,
+        "minWidth": 1180,
+        "minHeight": 760,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true
+      // Provider-specific function removed
+    ],
+    "security": {
+      "csp": null
+    // Provider-specific function removed
+  // Provider-specific function removed,
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "android": {
+      "debugApplicationIdSuffix": ".debug"
+    // Provider-specific function removed
+  // Provider-specific function removed
+// Provider-specific function removed

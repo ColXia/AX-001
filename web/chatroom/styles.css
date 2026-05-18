@@ -1,0 +1,682 @@
+/* AX-001 几何直线设计风格 */
+
+:root {
+  --bg: #0e1320;
+  --line: rgba(147, 172, 226, 0.25);
+  --text: #eef3ff;
+  --muted: #9eb0d1;
+  --accent: #65a6ff;
+  --good: #2bc48a;
+  --warn: #ffb84d;
+  --danger: #ff6f7d;
+  --workspace-sidebar-width: 280px;
+  --runtime-sidebar-width: 240px;
+  --font-ui: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --font-mono: "Cascadia Mono", "Consolas", monospace;
+// Provider-specific function removed
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+// Provider-specific function removed
+
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+// Provider-specific function removed
+
+body {
+  color: var(--text);
+  background: linear-gradient(180deg, #131b2f 0%, #0c111d 100%);
+  font-family: var(--font-ui);
+  overflow: hidden;
+// Provider-specific function removed
+
+button, input, textarea, select {
+  font: inherit;
+// Provider-specific function removed
+
+button {
+  color: inherit;
+  cursor: pointer;
+// Provider-specific function removed
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+// Provider-specific function removed
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+// Provider-specific function removed
+
+::-webkit-scrollbar-thumb {
+  background: rgba(141, 184, 255, 0.2);
+// Provider-specific function removed
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(141, 184, 255, 0.3);
+// Provider-specific function removed
+
+/* App Shell */
+.app-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+// Provider-specific function removed
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 48px;
+  background: rgba(14, 19, 32, 0.95);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+// Provider-specific function removed
+
+.title-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+// Provider-specific function removed
+
+.title-block h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+// Provider-specific function removed
+
+.room-type-badge {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(101, 166, 255, 0.15);
+  color: var(--accent);
+// Provider-specific function removed
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+// Provider-specific function removed
+
+/* Workspace Shell */
+.workspace-shell {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+// Provider-specific function removed
+
+/* Room Browser */
+.room-browser {
+  width: var(--workspace-sidebar-width);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  background: rgba(14, 19, 32, 0.6);
+  overflow: hidden;
+  flex-shrink: 0;
+// Provider-specific function removed
+
+.room-browser-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 15, 25, 0.5);
+// Provider-specific function removed
+
+.room-browser-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+// Provider-specific function removed
+
+.room-browser-title-row h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+// Provider-specific function removed
+
+.create-room-btn {
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 100ms ease;
+// Provider-specific function removed
+
+.create-room-btn:hover {
+  background: rgba(101, 166, 255, 0.15);
+// Provider-specific function removed
+
+.room-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+// Provider-specific function removed
+
+.room-search-input,
+.room-status-filter,
+.room-type-filter {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 12px;
+// Provider-specific function removed
+
+.room-search-input::placeholder {
+  color: var(--muted);
+// Provider-specific function removed
+
+.room-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+// Provider-specific function removed
+
+/* Room Card */
+.room-card {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: all 100ms ease;
+// Provider-specific function removed
+
+.room-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+// Provider-specific function removed
+
+.room-card.is-selected {
+  border-color: var(--accent);
+  background: rgba(101, 166, 255, 0.08);
+// Provider-specific function removed
+
+.room-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+// Provider-specific function removed
+
+.room-card-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  flex: 1;
+  min-width: 0;
+// Provider-specific function removed
+
+.room-card-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 100ms ease;
+// Provider-specific function removed
+
+.room-card:hover .room-card-actions {
+  opacity: 1;
+// Provider-specific function removed
+
+.room-action-btn {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+// Provider-specific function removed
+
+.room-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--text);
+// Provider-specific function removed
+
+.room-action-btn.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+// Provider-specific function removed
+
+.room-action-btn.danger:hover {
+  background: rgba(255, 111, 125, 0.15);
+// Provider-specific function removed
+
+.room-card-meta {
+  font-size: 11px;
+  color: var(--muted);
+// Provider-specific function removed
+
+/* Chat Panel */
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 15, 25, 0.3);
+  overflow: hidden;
+  min-width: 0;
+// Provider-specific function removed
+
+.room-banner {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 15, 25, 0.5);
+// Provider-specific function removed
+
+.room-banner-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+// Provider-specific function removed
+
+.room-banner-meta {
+  font-size: 12px;
+  color: var(--muted);
+// Provider-specific function removed
+
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+// Provider-specific function removed
+
+.message-card {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--line);
+// Provider-specific function removed
+
+.message-card.user {
+  border-left-color: var(--accent);
+// Provider-specific function removed
+
+.message-card.assistant {
+  border-left-color: var(--good);
+// Provider-specific function removed
+
+.message-author {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 4px;
+// Provider-specific function removed
+
+.message-content {
+  font-size: 13px;
+  line-height: 1.5;
+// Provider-specific function removed
+
+.composer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  background: rgba(10, 15, 25, 0.5);
+// Provider-specific function removed
+
+.composer-form {
+  display: flex;
+  gap: 10px;
+// Provider-specific function removed
+
+.composer-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 13px;
+  resize: none;
+// Provider-specific function removed
+
+.composer-send {
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  cursor: pointer;
+// Provider-specific function removed
+
+.composer-send:hover {
+  background: rgba(101, 166, 255, 0.15);
+// Provider-specific function removed
+
+/* Runtime Panel */
+.runtime-panel {
+  width: var(--runtime-sidebar-width);
+  border-left: 1px solid var(--line);
+  background: rgba(14, 19, 32, 0.6);
+  overflow-y: auto;
+  padding: 12px;
+  flex-shrink: 0;
+// Provider-specific function removed
+
+.side-card {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+// Provider-specific function removed
+
+.side-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--muted);
+// Provider-specific function removed
+
+.side-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+// Provider-specific function removed
+
+/* Status Card */
+.status-info {
+  font-size: 12px;
+// Provider-specific function removed
+
+.status-info p {
+  margin: 4px 0;
+// Provider-specific function removed
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+// Provider-specific function removed
+
+.status-badge.idle {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+// Provider-specific function removed
+
+.status-badge.running {
+  background: rgba(43, 196, 138, 0.2);
+  color: var(--good);
+// Provider-specific function removed
+
+.status-badge.paused {
+  background: rgba(255, 184, 77, 0.2);
+  color: var(--warn);
+// Provider-specific function removed
+
+.status-badge.completed {
+  background: rgba(101, 166, 255, 0.2);
+  color: var(--accent);
+// Provider-specific function removed
+
+/* Control Card */
+.control-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+// Provider-specific function removed
+
+.control-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+// Provider-specific function removed
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+// Provider-specific function removed
+
+.control-btn.primary {
+  border-color: var(--accent);
+  color: var(--accent);
+// Provider-specific function removed
+
+.control-btn.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+// Provider-specific function removed
+
+.control-btn.danger:hover {
+  background: rgba(255, 111, 125, 0.15);
+// Provider-specific function removed
+
+/* Participants List */
+.participants-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+// Provider-specific function removed
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+// Provider-specific function removed
+
+.participant-item:last-child {
+  border-bottom: none;
+// Provider-specific function removed
+
+.participant-name {
+  color: var(--text);
+// Provider-specific function removed
+
+.participant-type {
+  color: var(--muted);
+  font-size: 11px;
+// Provider-specific function removed
+
+/* Runs List */
+.runs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+// Provider-specific function removed
+
+.run-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 0;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+// Provider-specific function removed
+
+.run-item:last-child {
+  border-bottom: none;
+// Provider-specific function removed
+
+.run-status {
+  color: var(--muted);
+// Provider-specific function removed
+
+.run-item.completed .run-status {
+  color: var(--good);
+// Provider-specific function removed
+
+.run-item.running .run-status {
+  color: var(--accent);
+// Provider-specific function removed
+
+.run-time, .run-rounds {
+  color: var(--muted);
+  font-size: 10px;
+// Provider-specific function removed
+
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+// Provider-specific function removed
+
+/* Dialog */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+// Provider-specific function removed
+
+.dialog-content {
+  width: 420px;
+  max-width: 90vw;
+  border: 1px solid var(--line);
+  background: rgba(14, 19, 32, 0.98);
+// Provider-specific function removed
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 15, 25, 0.5);
+// Provider-specific function removed
+
+.dialog-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+// Provider-specific function removed
+
+.close-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+// Provider-specific function removed
+
+.close-btn:hover {
+  color: var(--text);
+// Provider-specific function removed
+
+.dialog-form {
+  padding: 16px;
+// Provider-specific function removed
+
+.form-group {
+  margin-bottom: 12px;
+// Provider-specific function removed
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+// Provider-specific function removed
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 13px;
+// Provider-specific function removed
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+// Provider-specific function removed
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+// Provider-specific function removed
+
+.primary-button,
+.secondary-button {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+// Provider-specific function removed
+
+.primary-button {
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+// Provider-specific function removed
+
+.primary-button:hover {
+  background: rgba(101, 166, 255, 0.15);
+// Provider-specific function removed
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+// Provider-specific function removed
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+// Provider-specific function removed
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+// Provider-specific function removed
+
+.toast {
+  padding: 10px 14px;
+  background: rgba(14, 19, 32, 0.95);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+// Provider-specific function removed
+
+.toast-icon {
+  font-size: 14px;
+// Provider-specific function removed
+
+.toast.success {
+  border-color: var(--good);
+// Provider-specific function removed
+
+.toast.error {
+  border-color: var(--danger);
+// Provider-specific function removed

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>API 测试</title>
+</head>
+<body>
+    <h1>API 测试</h1>
+    <pre id="output"></pre>
+
+    <script>
+        async function testAPI() {
+            const output = document.getElementById('output');
+            try {
+                // 测试获取房间列表
+                const roomsResponse = await fetch('/api/rooms');
+                const roomsData = await roomsResponse.json();
+                output.textContent += '房间列表:\n' + JSON.stringify(roomsData, null, 2) + '\n\n';
+
+                // 测试获取单个房间
+              ***REMOVED***roomsData.rooms && roomsData.rooms.length > 0) {
+                    const roomId = roomsData.rooms[0].roomId;
+                    const roomResponse = await fetch(`/api/rooms/${roomId// Provider-specific function removed`);
+                    const roomData = await roomResponse.json();
+                    output.textContent += '房间详情:\n' + JSON.stringify(roomData, null, 2);
+                // Provider-specific function removed
+            // Provider-specific function removed catch (error) {
+                output.textContent = '错误: ' + error.message + '\n' + error.stack;
+            // Provider-specific function removed
+        // Provider-specific function removed
+
+        testAPI();
+    </script>
+</body>
+</html>

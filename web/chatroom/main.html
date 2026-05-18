@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AX-001 房间工作台</title>
+    <link rel="stylesheet" href="./base/base-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="title-block">
+          <h1 id="app-title">AX-001</h1>
+          <span id="room-type-badge" class="room-type-badge"></span>
+        </div>
+        <div id="header-actions" class="header-actions"></div>
+      </header>
+
+      <section class="workspace-shell">
+        <aside id="room-browser" class="room-browser">
+          <header class="room-browser-header">
+            <div class="room-browser-title-row">
+              <h2>房间列表</h2>
+              <button id="create-room-btn" class="create-room-btn" title="创建新房间">+ 新建</button>
+            </div>
+            <div class="room-filters">
+              <input
+                type="search"
+                id="room-search-input"
+                class="room-search-input"
+                placeholder="搜索房间..."
+              />
+              <select id="room-status-filter" class="room-status-filter">
+                <option value="all">全部状态</option>
+                <option value="running">运行中</option>
+                <option value="paused">已暂停</option>
+                <option value="completed">已完成</option>
+              </select>
+              <select id="room-type-filter" class="room-type-filter">
+                <option value="all">全部类型</option>
+                <option value="interview_simulation">面试</option>
+                <option value="roleplay_scene">角色扮演</option>
+              </select>
+            </div>
+          </header>
+          <div id="room-list" class="room-list">
+            <p class="empty-state">加载中...</p>
+          </div>
+        </aside>
+
+        <div id="create-room-dialog" class="dialog-overlay" style="display: none;">
+          <div class="dialog-content">
+            <header class="dialog-header">
+              <h3>创建新房间</h3>
+              <button id="close-dialog-btn" class="close-btn">&times;</button>
+            </header>
+            <form id="create-room-form" class="dialog-form">
+              <div class="form-group">
+                <label for="room-type-select">房间类型</label>
+                <select id="room-type-select" name="roomType" required>
+                  <option value="roleplay_scene">角色扮演</option>
+                  <option value="interview_simulation">面试模拟</option>
+                  <option value="expert_discussion">专家讨论</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="room-topic-input">主题</label>
+                <input type="text" id="room-topic-input" name="topic" placeholder="房间主题" required />
+              </div>
+              <div class="form-group">
+                <label for="room-objective-input">目标</label>
+                <textarea id="room-objective-input" name="objective" placeholder="房间目标" rows="2" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="room-constraints-input">约束（可选，每行一条）</label>
+                <textarea id="room-constraints-input" name="constraints" placeholder="约束条件" rows="2"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="room-speakers-input">角色数量</label>
+                <input type="number" id="room-speakers-input" name="speakers" value="4" min="2" max="18" />
+              </div>
+              <div class="form-group">
+                <label for="room-rounds-input">执行轮次</label>
+                <input type="number" id="room-rounds-input" name="rounds" value="1" min="1" max="20" />
+              </div>
+              <div class="form-actions">
+                <button type="button" id="cancel-create-btn" class="secondary-button">取消</button>
+                <button type="submit" class="primary-button">创建</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <section class="chat-panel">
+          <div id="room-banner" class="room-banner">
+            <p class="empty-state">选择一个房间开始</p>
+          </div>
+
+          <div id="message-list" class="message-list"></div>
+
+          <div id="composer" class="composer"></div>
+        </section>
+
+        <aside id="runtime-panel" class="runtime-panel">
+          <p class="empty-state">选择房间查看详情</p>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Frontend entry point -->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

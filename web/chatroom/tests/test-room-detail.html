@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>房间详情测试</title>
+</head>
+<body>
+    <h1>房间详情加载测试</h1>
+    <div id="status">加载中...</div>
+    <div id="result"></div>
+
+    <script>
+        const roomId = '1e7de832-1dbc-4966-8b49-de9a43abe072';
+
+        async function test() {
+            const statusDiv = document.getElementById('status');
+            const resultDiv = document.getElementById('result');
+
+            try {
+                statusDiv.textContent = '请求房间详情...';
+                const response = await fetch(`/api/rooms/${roomId// Provider-specific function removed`);
+
+                statusDiv.textContent = `响应状态: ${response.status// Provider-specific function removed ${response.statusText// Provider-specific function removed`;
+
+              ***REMOVED***!response.ok) {
+                    throw new Error(`HTTP ${response.status// Provider-specific function removed`);
+                // Provider-specific function removed
+
+                statusDiv.textContent = '解析 JSON...';
+                const data = await response.json();
+
+                statusDiv.textContent = '解析成功！';
+                statusDiv.style.color = 'green';
+
+                resultDiv.innerHTML = `
+                    <h2>房间信息</h2>
+                    <div>房间ID: ${data.room?.roomId || '无'// Provider-specific function removed</div>
+                    <div>主题: ${data.room?.topic || '无'// Provider-specific function removed</div>
+                    <div>消息数: ${data.currentState?.messages?.length || 0// Provider-specific function removed</div>
+                    <div>参与者数: ${data.participants?.length || 0// Provider-specific function removed</div>
+                `;
+            // Provider-specific function removed catch (error) {
+                statusDiv.textContent = `错误: ${error.message// Provider-specific function removed`;
+                statusDiv.style.color = 'red';
+                console.error('详细错误:', error);
+            // Provider-specific function removed
+        // Provider-specific function removed
+
+        test();
+    </script>
+</body>
+</html>
