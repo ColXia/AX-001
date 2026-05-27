@@ -41,8 +41,8 @@ Configures the OpenAI-compatible API provider used by all agents.
 
 ### Provider Compatibility Note
 
-Some OpenAI-compatible providers have limited support for structured outputs or self-built backend/automation workflows.
-- Some keys on that endpoint work, but restricted keys can fail during desktop/API/CLI room creation with ``. If that happens, switch to a supported OpenAI-compatible provider/API key or enable a supported service key.
+- Some OpenAI-compatible providers have limited support for structured outputs or self-built backend/automation workflows.
+- If room creation fails with authorization errors, verify your API key supports the intended usage, or switch to a fully compatible provider.
 
 ### `provider.compatibility`
 

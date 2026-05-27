@@ -3,52 +3,20 @@ export interface ProviderDescriptor {
   model?: string;
 // Provider-specific function removed
 
-***REMOVED***
-// Provider-specific patterns removed
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-// Provider-specific function removed
-
 export function getProviderWarning(
-***REMOVED***
+  _descriptor: ProviderDescriptor | null | undefined,
 ): string | null {
-***REMOVED***
-***REMOVED***
-  // Provider-specific function removed
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-return null;
+  return null;
 // Provider-specific function removed
 
 export function explainProviderErrorMessage(
   message: string,
-***REMOVED***
+  _descriptor: ProviderDescriptor | null | undefined,
 ): string {
   const normalized = normalizeProviderText(message);
 ***REMOVED***!normalized) {
     return 'Request failed.';
   // Provider-specific function removed
-
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  return null;
-  // Provider-specific function removed
-
   return normalized;
 // Provider-specific function removed
 

@@ -124,7 +124,7 @@ As of 2026-04-15, the active product slice has moved to the agent-room runtime u
 - 2026-04-13 the opening-turn gap is fixed: a fresh interview room now posts the first HR question deterministically instead of letting the planner drift into `wait`, and the persisted room state keeps `interviewCurrentPhase` plus `interviewPendingCandidateReply`.
 - 2026-04-13 a full demo interview can now run to terminal state without being blocked by a hanging recorder step; summary/checkpoint generation is fail-open, and the fallback final report now derives heuristic scoring, strengths/weaknesses, competency scores, question log, and next-step guidance from the transcript when the structured recorder times out.
 - 2026-04-13 regression coverage now explicitly protects recorder-checkpoint timeout fail-open behavior plus final-summary timeout fallback output for interview `scenario-report` artifacts; keep watching live provider-backed report quality, but the main room-completion path is no longer blocked on recorder latency.
-- Keep the `` diagnostics in place because some  Coding Plan keys are still incompatible with AX-001 backend/web execution.
+- Provider-specific error diagnostics should be abstracted into a pluggable adapter layer.
 
 ### Previous Slice
 
