@@ -88,7 +88,6 @@
 ### 🚀 Git 追踪
 
 - 初始化 Git 仓库
-- 推送到 GitHub (https://github.com//AX-001.git)
 - 创建初始提交（271 个文件）
 - 设置正确的 .gitignore 规则
 

@@ -22,7 +22,6 @@ npm install
    cp config/runtime.config.example.json config/runtime.config.local.json
    ```
 2. Edit `config/runtime.config.local.json` with your provider settings
-3. Edit `config/runtime.config.local.json` with your provider settings
 
 See `docs/configuration-reference.md` for all config fields.
 

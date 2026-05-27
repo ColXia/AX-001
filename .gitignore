@@ -9,8 +9,8 @@ runs/
 data/
 tmp/
 
-# Claude Code local settings (machine-specific, contains personal paths)
-.claude/settings.local.json
+# Claude Code (AI development tool, not project content)
+.claude/
 
 # Configuration with secrets
 config/runtime.config.local.json
