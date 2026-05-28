@@ -19,9 +19,9 @@ All validation is done via Zod schemas. Invalid config produces a detailed error
 
 ```json
 {
-  "provider": { ... // Provider-specific function removed,
-  "runtime": { ... // Provider-specific function removed
-// Provider-specific function removed
+  "provider": { ... },
+  "runtime": { ... }
+}
 ```
 
 ## `provider` — Model Provider Settings
@@ -132,8 +132,8 @@ Chatroom-specific runtime configuration.
     "baseURL": "https://api.openai.com/v1",
     "apiKey": "sk-...",
     "model": "gpt-4o"
-  // Provider-specific function removed
-// Provider-specific function removed
+  }
+}
 ```
 
 All `runtime` fields have defaults, so you only need to specify `provider`.
@@ -153,8 +153,8 @@ All `runtime` fields have defaults, so you only need to specify `provider`.
     "compatibility": {
       "structuredOutputMode": "tool",
       "maxStructuredOutputRetries": 2
-    // Provider-specific function removed
-  // Provider-specific function removed,
+    }
+  },
   "runtime": {
     "tracingDisabled": true,
     "workflowName": "ax-001-analysis",
@@ -169,14 +169,14 @@ All `runtime` fields have defaults, so you only need to specify `provider`.
         "maxDelayMs": 4000,
         "multiplier": 2,
         "jitter": true
-      // Provider-specific function removed
-    // Provider-specific function removed,
+      }
+    },
     "chatroom": {
       "speakerCount": 12,
       "parallelBatchSize": 4
-    // Provider-specific function removed
-  // Provider-specific function removed
-// Provider-specific function removed
+    }
+  }
+}
 ```
 
 ## Config Validation Errors
