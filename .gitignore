@@ -14,12 +14,14 @@ tmp/
 
 # Configuration with secrets
 config/runtime.config.local.json
+config/runtime.config.json
 
 # Logs
 *.log
 tmp-*.log
 *.err.log
 *.out.log
+tmp-tauri-server.*
 
 # Personal documents
 resume_*.docx
